@@ -1,17 +1,17 @@
-import EnvironmentVariable from "../../environment_variable/EnvironmentVariable";
-import { Client, ID, Databases, Storage, Query } from "appwrite";
+import EnvironmentVariable from "../environment_variable/EnvironmentVariable";
+import { Client, ID, Databases, Storage } from "appwrite";
 
 export class FileService {
   client = new Client();
   databases;
-  storage;
+  Storage;
 
   constructor() {
     this.client
       .setEndpoint(EnvironmentVariable.appwriteUrl)
       .setProject(EnvironmentVariable.appwriteProjectId);
     this.databases = new Databases(this.client);
-    this.storage = new storage(this.client);
+    this.storage = new Storage(this.client);
   }
 
   // upload file
@@ -41,7 +41,7 @@ export class FileService {
   }
 
   // preview file
-  async previewFile(fileId) {
+  async getFilePreview(fileId) {
     try {
       return this.storage.getFilePreview(
         EnvironmentVariable.appwriteBucketId,

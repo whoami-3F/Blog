@@ -1,5 +1,5 @@
 import EnvironmentVariable from "../environment_variable/EnvironmentVariable";
-import { Client, ID, Databases, Storage, Query } from "appwrite";
+import { Client, Databases, Storage, Query } from "appwrite";
 
 export class StorageService {
   // Getting started with appwrite
